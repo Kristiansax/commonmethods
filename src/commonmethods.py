@@ -3,6 +3,8 @@ def safe_cast(val, to_type, default=None):
     Used for casting values safely, returning a defult value on casting errors
     """
     try:
+        if to_type == int:
+            return to_type(double(val))
         return to_type(val)
     except (ValueError, TypeError):
         return default
